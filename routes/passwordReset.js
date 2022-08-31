@@ -23,15 +23,15 @@ router.post("/", async (req, res) => {
         .status(409)
         .send({ message: "User with given email does not exist!" });
 
-    let token1 = await Token.findOne({ userId: user._id });
-    if (!token1) {
-      token1 = await new Token({
+    let token = await Token.findOne({ userId: user._id });
+    if (!token) {
+      token = await new Token({
         userId: user._id,
         token: crypto.randomBytes(32).toString("hex"),
       }).save();
     }
 
-    const url = `${process.env.BASE_URL}password-reset/${user._id}/${token1.token}/`;
+    const url = `${process.env.BASE_URL}password-reset/${user._id}/${token.token}/`;
     await sendEmail(user.email, "Password Reset", url);
 
     res
