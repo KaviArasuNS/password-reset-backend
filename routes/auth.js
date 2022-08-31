@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
           userId: user._id,
           token: crypto.randomBytes(32).toString("hex"),
         }).save();
-        const url = `https://password-reset-zentask.netlify.app/users/${user.id}/verify/${token.token}`;
+        const url = `${process.env.NETLIFY_URL}users/${user.id}/verify/${token.token}`;
         await sendEmail(user.email, "Verify Email", url);
       }
 
