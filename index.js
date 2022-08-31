@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", async (req, res) => {
-  res.send("Server Is Running, Catch It If You Can");
+  res.send("Server Is Up and Running for you");
 });
 
 //routes
