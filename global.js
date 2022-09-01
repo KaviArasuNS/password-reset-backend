@@ -1,0 +1,9 @@
+export const PORT = 8080;
+export const JWTPRIVATEKEY = "KAVI";
+export const SALT = 10;
+export const NETLIFY_URL = "https://password-reset-zentask.netlify.app/";
+export const BASE_URL = "http://localhost:3000/";
+export const HOST = "smtp.gmail.com";
+export const SERVICE = "gmail";
+export const EMAIL_PORT = 587;
+export const SECURE = true;
