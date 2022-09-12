@@ -7,7 +7,7 @@ const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 const bcrypt = require("bcrypt");
 
-// send password link
+// send password reset link
 router.post("/", async (req, res) => {
   try {
     const emailSchema = Joi.object({
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// verify password reset link
+// verify password reset link and enable user to reset password
 router.get("/:id/:token", async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id });

@@ -5,6 +5,7 @@ const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 const bcrypt = require("bcrypt");
 
+// creation of new user account
 router.post("/", async (req, res) => {
   try {
     const { error } = validate(req.body);
@@ -38,6 +39,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// email id verification after creating user account
 router.get("/:id/verify/:token", async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id });

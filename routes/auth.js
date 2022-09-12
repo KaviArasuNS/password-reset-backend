@@ -6,6 +6,7 @@ const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 
+// Validate Login Process
 router.post("/", async (req, res) => {
   try {
     const { error } = validate(req.body);
