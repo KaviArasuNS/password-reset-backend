@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
 });
 
 // email id verification after creating user account
-router.get("/:id/verify/:token", async (req, res) => {
+router.put("/:id/verify/:token", async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id });
     if (!user) return res.status(400).send({ message: "Invalid link" });
